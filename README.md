@@ -19,6 +19,6 @@ The Movie Search App is a web application that allows users to search for movies
     Node.js
     Express.js
 - Database:-
-    MySQL
+    PostgreSQL
 - API Integration:
     Custom API
