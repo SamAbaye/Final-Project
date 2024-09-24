@@ -4,53 +4,64 @@ import Cards from "./Cards";
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const url = 'http://localhost:3001';
-
-  // Fetch movies from the backend
-  const getMovies = async () => {
-    try {
-      const response = await fetch(`${url}/search?title=The`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-
-        // Set movies state if data is available
-        if (data.length > 0) {
-          setMovies(data);
-        }
-      }
-    } catch (error) {
-      console.error("Error fetching movies:", error);
-    }
-  };
-
-  // Fetch movies when the component mounts
+  
+  //Fetch movies from the backend and Fetch movies when the component mounts
   useEffect(() => {
-    getMovies();
-  }, []); // Empty dependency array ensures it runs once on mount
+    const fetchMovies = async () => {
+      try {
+        const response = await fetch(`${url}/search`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data);
+  
+          let moviesArray = [];
+  
+          // Push first 5 movies into moviesArray
+          for (let i = 0; i < 8 && i < data.length; i++) {
+            moviesArray.push(data[i]);
+          }
+  
+          // Set movies state if there are movies
+          if (moviesArray.length > 0) {
+            setMovies(moviesArray);
+          }
+        } else {
+          console.error('Failed to fetch movies. Status:', response.status);
+        }
+      } catch (error) {
+        console.error('Error fetching movies:', error);
+      }
+    };
+  
+    // Call the async function
+    fetchMovies();
+  }, []);  // The empty array makes sure this runs only once when the component mounts
+ 
 
   return (
-    <div className="tc">
-      <ul>
+    <div className="container mt-5">
+        <div className="row">
         {movies.length > 0 ? (
           movies.map((movie) => (
+            <div className="col-md-3 mb-3" key={movie.id}>
             <Cards
-              key={movie.id}
               title={movie.title}
               director={movie.director}
               year={movie.year}
               genre={movie.genre}
             />
+            </div>
           ))
         ) : (
           <p>No movies found</p>
         )}
-      </ul>
+      </div>
     </div>
   );
 };

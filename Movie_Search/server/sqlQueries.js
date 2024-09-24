@@ -4,7 +4,7 @@ The following SQL queries were used to create the database.
 The database was created using PostgresSQL.
 
 CREATE TABLE Movies (
-    Movie_id INT PRIMARY KEY,
+    Movie_id INTIGER PRIMARY KEY,
     Title VARCHAR(255) NOT NULL,
     Director VARCHAR(255) NOT NULL,
     Budget DECIMAL(15, 2),
