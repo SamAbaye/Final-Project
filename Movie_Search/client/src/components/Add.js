@@ -80,7 +80,7 @@ const Add = () => {
   };
 
   return (
-    <div className="container mt-5 text-center">
+    <div className="container text-center">
       <button onClick={handleShowForm} className="btn btn-info mb-4">
         {showAddForm ? 'Back to Options' : 'Show Add Movie Form'}
       </button>
