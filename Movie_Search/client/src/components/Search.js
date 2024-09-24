@@ -6,19 +6,18 @@ const Search = () => {
     const [loading, setLoading] = useState(false); // Track the loading state
     const [error, setError] = useState(null); // Track any errors during fetching
 
-    const url = 'http://localhost:3001'; 
+    const url = 'http://localhost:3001'; // Replace with your backend URL (//should not be displayed)
 
     // Handle search filtering
     const handleSearch = async () => {
-        if (!searchInputValue.trim()) return;
-
-        setLoading(true); // Set loading state to true while fetching
-        setError(null); // Clear previous errors
-        setFilteredMovies([]); // Clear previous search results
-
-        const searchQuery = searchInputValue.toLowerCase();
-
+    
         try {
+            if (!searchInputValue.trim()) return;
+                setLoading(true); // Set loading state to true while fetching
+                setError(null); // Clear previous errors
+                setFilteredMovies([]); // Clear previous search results
+
+                const searchQuery = searchInputValue.toLowerCase();     // Convert search input to lowercase
             // Fetch the movies based on the search query
             const response = await fetch(`${url}/search?query=${searchQuery}`, {
                 method: 'GET',
