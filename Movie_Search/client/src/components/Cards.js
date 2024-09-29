@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Cards = ({ title, year, genre, director }) => {
+const Cards = ({ title, year, genre, director, movie_id}) => {
   return (
     <div
       className="card bg-dark text-white"
@@ -23,6 +23,7 @@ const Cards = ({ title, year, genre, director }) => {
         }}
       />
       <div className="card-body">
+        <h5 className="card-title">{movie_id}</h5>
         <h5 className="card-title">{title}</h5>
         <p className="card-text">Director: {director}</p>
         <p className="card-text">Year: {year}</p>

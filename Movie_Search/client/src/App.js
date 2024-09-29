@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home'; // Use Home instead of HomePage
-import Search from './components/Search';
 import Admin from './components/Admin';
 import Movies from './components/Movies';
 import Navbar from './components/Navbar';
@@ -13,7 +12,6 @@ const App = () => {
             <Navbar/>
              <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/search" element={<Search />} />
                     <Route path="/admin" element={<Admin />} />
                     <Route path="/movies" element={<Movies />} />   
             </Routes>

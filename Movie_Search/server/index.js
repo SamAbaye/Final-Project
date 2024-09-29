@@ -71,6 +71,7 @@ app.post('/addMovie', async (req, res) => {
             'INSERT INTO movies (title, director, budget, description, genre, year, date, runtime, summary) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)',
             [title, director, budget, description, genre, year, date, runtime, summary]
         );
+        res.status(200).json("Movie was added successfully");
         res.json(newMovie.rows[0]);
         }
     } catch (error) {

@@ -16,7 +16,7 @@ const Add = () => {
   const [errorMessage, setErrorMessage] = useState('');  // Error state for validation
 
   const url = 'http://localhost:3001';
-
+  
   const handleAddButton = async (event) => {
     event.preventDefault();
 
@@ -50,7 +50,9 @@ const Add = () => {
 
       if (response.ok) {
         const data = await response.json();
+        console.log(data);
         setAddApiResponse('Movie added successfully!');
+        console.log(addApiResponse);
 
         // Clear form inputs after successful submission
         setTitleInputValue('');

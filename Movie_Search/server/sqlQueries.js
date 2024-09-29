@@ -70,9 +70,4 @@ INSERT INTO Movies (Movie_id, Title, Director, Budget, Description, Genre, Year,
 (49, 'The Sixth Sense', 'M. Night Shyamalan', 40000000, 'A boy who communicates with spirits seeks the help of a disheartened child psychologist.', 'Thriller', 1999, '1999-08-06', 107, 'A boy sees dead people and seeks help from a psychologist.'),
 (50, 'The Usual Suspects', 'Bryan Singer', 6000000, 'A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat.', 'Crime', 1995, '1995-08-16', 106, 'A criminal recounts a series of events involving a mysterious crime lord.'); 
 
-
-
-
-
-
 */
